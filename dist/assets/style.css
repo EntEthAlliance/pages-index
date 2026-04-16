@@ -1,0 +1,36 @@
+:root{
+  --bg:#0b1220;
+  --fg:#e7eaf0;
+  --muted:rgba(231,234,240,.75);
+  --card:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.12);
+  --accent:#9ad1ff;
+  --activeGlow:rgba(122,162,255,.28);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+.wrap{max-width:1100px;margin:0 auto;padding:32px 18px 64px;}
+.hero{margin-bottom:22px;}
+h1{margin:0 0 8px;font-size:30px;letter-spacing:-.3px;}
+.sub{margin:0 0 6px;color:var(--muted);}
+.small{margin:0;color:rgba(231,234,240,.6);font-size:12px;}
+.muted{color:rgba(231,234,240,.6)}
+h2{margin:22px 0 10px;font-size:16px;letter-spacing:.2px;}
+.grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
+.card{position:relative;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:16px 16px 14px;min-height:140px;}
+.card .title{font-weight:800;margin:28px 0 8px;font-size:16px;}
+.card .title a{color:var(--accent);text-decoration:none;}
+.card .title a:hover{text-decoration:underline;}
+.card .desc{color:rgba(231,234,240,.9);font-size:13px;line-height:1.35;}
+.card .meta{margin-top:10px;font-size:12px;color:rgba(231,234,240,.7);}
+.card .meta a{color:rgba(231,234,240,.85);}
+
+/* Active-state visual treatment inspired by the screenshot: dark card + subtle glow + circular badge */
+.card.active{border-color:rgba(122,162,255,.40);box-shadow:0 0 0 1px rgba(122,162,255,.10) inset, 0 18px 45px rgba(0,0,0,.35), 0 0 30px var(--activeGlow);}
+.badge{position:absolute;top:14px;left:14px;width:40px;height:40px;border-radius:999px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg, rgba(140,170,255,1), rgba(112,128,255,1));
+  color:#0b1220;font-weight:900;}
+.card.inactive .badge{background:linear-gradient(180deg, rgba(255,211,106,1), rgba(255,179,64,1));}
+
+.footer{margin-top:28px;color:rgba(231,234,240,.65);font-size:12px;}
+.footer a{color:rgba(231,234,240,.85);}
