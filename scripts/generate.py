@@ -132,6 +132,9 @@ def main() -> None:
     html = f"""<!doctype html>
 <html lang=\"en\">
 <head>
+  <meta charset=\"utf-8\" />
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
+  <title>{ORG} · GitHub Pages Index</title>
   <!-- EEA-PAGES Analytics (GT-PL9524M) -->
   <script async src=\"https://www.googletagmanager.com/gtag/js?id=GT-PL9524M\"></script>
   <script>
@@ -140,9 +143,6 @@ def main() -> None:
     gtag('js', new Date());
     gtag('config', 'GT-PL9524M');
   </script>
-  <meta charset=\"utf-8\" />
-  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
-  <title>{ORG} · GitHub Pages Index</title>
   <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
   <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
   <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kode+Mono:wght@400;500;600&display=swap\">
