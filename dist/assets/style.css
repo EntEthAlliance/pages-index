@@ -1,36 +1,37 @@
+/* pages-index local styles — EEA editorial family.
+   Tokens come from editorial.css (--eea-ed-*); values below fall back to the
+   same colours so the page degrades safely if the design-system CSS fails. */
 :root{
-  --bg:#0a0a0f;
-  --fg:#e8e8f0;
-  --muted:rgba(232,232,240,.75);
-  --card:rgba(255,255,255,.06);
-  --border:rgba(255,255,255,.08);
-  --accent:#627eea;
-  --activeGlow:rgba(98,126,234,.28);
+  --bg:var(--eea-ed-page, #EDEAE3);
+  --fg:var(--eea-ed-ink, #16181A);
+  --muted:var(--eea-ed-ink-soft, #5A645E);
+  --card:var(--eea-ed-ground, #F7F5F0);
+  --border:var(--eea-ed-line, #DAD6CD);
+  --rule:var(--eea-ed-rule, #E3DFD7);
+  --accent:var(--eea-ed-accent, #1F5C4A);
+  --accent-deep:var(--eea-ed-accent-deep, #123A2E);
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--eea-ed-font, Inter, system-ui, -apple-system, 'Segoe UI', sans-serif);}
 .wrap{max-width:1100px;margin:0 auto;padding:32px 18px 64px;}
-.hero{margin-bottom:22px;}
+.hero{margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--border);}
 h1{margin:0 0 8px;font-size:30px;letter-spacing:-.3px;}
 .sub{margin:0 0 6px;color:var(--muted);}
-.small{margin:0;color:rgba(232,232,240,.6);font-size:12px;}
-.muted{color:rgba(232,232,240,.6)}
-h2{margin:22px 0 10px;font-size:16px;letter-spacing:.2px;}
+.small{margin:0;color:var(--muted);font-size:12px;}
+.muted{color:var(--muted)}
+h2{margin:22px 0 10px;font-size:var(--eea-ed-label-lg, .75rem);font-family:var(--eea-ed-font-mono, 'Kode Mono', ui-monospace, monospace);font-weight:500;letter-spacing:var(--eea-ed-track-wide, .2em);text-transform:uppercase;color:var(--accent);}
 .grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
-.card{position:relative;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 16px 14px;min-height:140px;}
-.card .title{font-weight:800;margin:34px 0 8px;font-size:16px;text-align:center;}
+.card{position:relative;background:var(--card);border:1px solid var(--border);padding:16px 16px 14px;min-height:140px;}
+.card .title{font-weight:800;margin:48px 0 8px;font-size:16px;text-align:center;}
 .card .title a{color:var(--accent);text-decoration:none;}
-.card .title a:hover{text-decoration:underline;}
-.card .desc{color:rgba(232,232,240,.9);font-size:13px;line-height:1.35;}
-.card .meta{margin-top:10px;font-size:12px;color:rgba(232,232,240,.7);}
-.card .meta a{color:rgba(232,232,240,.85);}
+.card .title a:hover{text-decoration:underline;color:var(--accent-deep);}
+.card .desc{color:var(--fg);font-size:13px;line-height:1.35;}
+.card .meta{margin-top:10px;font-size:12px;color:var(--muted);}
+.card .meta a{color:var(--accent-deep);}
 
-/* Active-state visual treatment: dark card + subtle glow + circular badge */
-.card.active{border-color:rgba(98,126,234,.40);box-shadow:0 0 0 1px rgba(98,126,234,.10) inset, 0 18px 45px rgba(0,0,0,.35), 0 0 30px var(--activeGlow);}
-.badge{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:44px;height:44px;border-radius:999px;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(180deg, #8fa8ff, #627eea);
-  color:#0a0a0f;font-weight:900;box-shadow:0 10px 25px rgba(0,0,0,.35);}
-.card.inactive .badge{background:linear-gradient(180deg, rgba(255,211,106,1), rgba(255,179,64,1));}
-
-.footer{margin-top:28px;color:rgba(232,232,240,.65);font-size:12px;}
-.footer a{color:rgba(232,232,240,.85);}
+/* Active-state visual treatment: accent border + tinted ground + square badge */
+.card.active{border-color:var(--accent);background:rgba(31,92,74,0.08);}
+.badge{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  background:var(--accent);
+  color:var(--card);font-weight:600;font-family:var(--eea-ed-font-mono, 'Kode Mono', ui-monospace, monospace);}
+.card.inactive .badge{background:var(--rule);color:var(--fg);}
