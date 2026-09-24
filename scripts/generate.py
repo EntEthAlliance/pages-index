@@ -79,7 +79,7 @@ def main() -> None:
             "full_name": full,
             "repo_url": r.get("html_url"),
             "pages_url": pages_url,
-            "description": safe(r.get("description")) or "—",
+            "description": safe(r.get("description")) or "-",
             "pushed_at": pushed_at,
             "active": is_active,
             "archived": bool(r.get("archived")),
@@ -114,8 +114,8 @@ def main() -> None:
     def card(x: Dict[str, Any]) -> str:
         status = "ACTIVE" if x["active"] else "INACTIVE"
         cls = "card active" if x["active"] else "card inactive"
-        pushed = (x.get("pushed_at") or "")[:10] or "—"
-        desc = esc(x.get("description") or "—")
+        pushed = (x.get("pushed_at") or "")[:10] or "-"
+        desc = esc(x.get("description") or "-")
         pages_url = esc(x.get("pages_url") or "")
         repo_url = esc(x.get("repo_url") or "")
         title = esc(x.get("name") or "")
